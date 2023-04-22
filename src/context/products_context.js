@@ -26,9 +26,11 @@ const initialState = {
 
 const ProductsContext = React.createContext();
 
+//managing the state of products
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //defines toggle function and dispatch actions to change states
   const openSidebar = () => {
     dispatch({ type: SIDEBAR_OPEN });
   };
@@ -36,6 +38,7 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: SIDEBAR_CLOSE });
   };
 
+  //indicates the action type with dispatch and that needs to be updated with payload
   const fetchProducts = async (url) => {
     dispatch({ type: GET_PRODUCTS_BEGIN });
     try {
@@ -57,10 +60,11 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  //avoid rerender with useEffect
   useEffect(() => {
     fetchProducts(url);
   }, []);
-
+  //send out the current state and functions for updating the state
   return (
     <ProductsContext.Provider
       value={{
@@ -74,7 +78,8 @@ export const ProductsProvider = ({ children }) => {
     </ProductsContext.Provider>
   );
 };
-// make sure use
+
+//custom hook to exported value
 export const useProductsContext = () => {
   return useContext(ProductsContext);
 };
