@@ -1,3 +1,4 @@
+//separation of concerns(modularity)
 import Home from "./HomePage";
 import Products from "./ProductsPage";
 import SingleProduct from "./SingleProductPage";

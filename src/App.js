@@ -12,12 +12,15 @@ import {
   PrivateRoute,
 } from './pages'
 
+//switch: only render the first child
+//route: matches the current url and map it
+//exact: ensures exact not partial 
 function App() {
   return (
     <Router>
       <Navbar/>
       <Sidebar/>
-      <Switch>
+      <Switch> 
         <Route exact path="/">
           <Home/>
         </Route>
