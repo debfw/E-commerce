@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 const Footer = () => {
   return (
-    <h5>&copy;{newDate().getFullYear()}
+    <h5>&copy;{new Date().getFullYear()}
     <span> ComfySloth</span>
     <h5>All rights reserved</h5>
     </h5>

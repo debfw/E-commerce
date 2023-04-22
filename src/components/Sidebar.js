@@ -16,8 +16,8 @@ const Sidebar = () => {
         className={`${isSidebarOpen ? "sidebar show-sidebar" : "show-sidebar"}`}
       >
         <div className="sidebar-header">
-          <img src={logo} alt="comfy sloth" srcset="" />
-          <button className="clase-btn" type="button">
+          <img src={logo} alt="comfy sloth" />
+          <button className="class-btn" type="button" onClick={closeSidebar}>
             <FaTimes />
           </button>
         </div>
@@ -30,7 +30,9 @@ const Sidebar = () => {
             );
           })}
           <li>
-            <Link to="checkout">checkout</Link>
+            <Link to="/checkout" onClick={closeSidebar}>
+              checkout
+            </Link>
           </li>
         </ul>
         <CartButtons />

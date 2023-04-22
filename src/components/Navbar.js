@@ -9,6 +9,7 @@ import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
 // links (route) stored in the constants following SoC
 const Nav = () => {
+  const {openSidebar} =useProductsContext()
   return (
     <NavContainer>
       <div className="nav-center">
@@ -16,7 +17,7 @@ const Nav = () => {
           <Link to='/'>
             <img src={logo} alt="comfy sloth" />
           </Link>
-          <button type='button' className='nav-toggle'></button>
+          <button type='button' className='nav-toggle' onClick={openSidebar}></button>
           <FaBars/>
         </div>
         <ul className="nav-links">
@@ -29,7 +30,7 @@ const Nav = () => {
             )
           })}
         </ul>
-        <CardButtons/>
+        <CartButtons/>
       </div>
     </NavContainer>
   )
